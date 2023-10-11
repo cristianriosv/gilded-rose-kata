@@ -18,10 +18,10 @@ export class GildedRose {
   }
 
   updateQuality() {
-    const SULFURUS_NAME = 'Sulfuras, Hand of Ragnaros';
+    const SULFURUS_NAME = 'Sulfuras';
     const SULFURUS_FIXED_VALUE = 80;
     const AGED_BRIE_NAME = 'Aged Brie';
-    const BACKSTAGE_PASSES_NAME = 'Backstage passes to a TAFKAL80ETC concert';
+    const BACKSTAGE_PASSES_NAME = 'Backstage passes';
     const BACKSTAGE_PASSES_10_DAYS = 10;
     const BACKSTAGE_PASSES_5_DAYS = 5;
     const MAXIMUM_QUALITY = 50;
@@ -34,13 +34,13 @@ export class GildedRose {
       let sellInChangeAmount = -1;
       let qualitySellInFactor = item.sellIn > 0 ? 1 : 2;
 
-      if (item.name == SULFURUS_NAME) {
+      if (item.name.startsWith(SULFURUS_NAME)) {
         sellInChangeAmount = 0;
         qualityChangeAmount = 0;
         if (item.quality != SULFURUS_FIXED_VALUE) item.quality = SULFURUS_FIXED_VALUE;
-      } else if (item.name == AGED_BRIE_NAME) {
+      } else if (item.name.startsWith(AGED_BRIE_NAME)) {
         qualityChangeAmount = 1; 
-      } else if (item.name == BACKSTAGE_PASSES_NAME) {
+      } else if (item.name.startsWith(BACKSTAGE_PASSES_NAME)) {
         qualityChangeAmount = 1;
         if (item.sellIn <= 0)  qualityChangeAmount = -item.quality;
         else if (item.sellIn <= BACKSTAGE_PASSES_5_DAYS) qualityChangeAmount = 3;
