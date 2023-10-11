@@ -21,7 +21,6 @@ export class GildedRose {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
       let nextQualityValue = item.quality;
-      let nextSellInValue = item.sellIn;
 
       if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert') {
         if (nextQualityValue > 0) {
@@ -46,10 +45,7 @@ export class GildedRose {
           }
         }
       }
-      if (item.name != 'Sulfuras, Hand of Ragnaros') {
-        nextSellInValue--;
-      }
-      if (nextSellInValue < 0) {
+      if (item.sellIn < 1) {
         if (item.name != 'Aged Brie') {
           if (item.name != 'Backstage passes to a TAFKAL80ETC concert') {
             if (nextQualityValue > 0) {
@@ -67,8 +63,12 @@ export class GildedRose {
         }
       }
 
+      if (item.name != 'Sulfuras, Hand of Ragnaros') {
+        item.sellIn--;
+      }
+
       item.quality = nextQualityValue;
-      item.sellIn = nextSellInValue;
+      
     }
 
     return this.items;
