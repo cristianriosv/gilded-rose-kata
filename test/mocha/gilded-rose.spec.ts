@@ -192,4 +192,21 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     });
   });
 
+  describe('should not increase quality more than 50 for item \'Backstage passes\' when sellIn is between 0 and 10 days', () => {
+    const testCases = [
+      { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 10, quality: 48, expectedQuality: 50 },
+      { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 3, quality: 49, expectedQuality: 50 },
+      { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 8, quality: 49, expectedQuality: 50 }
+    ]
+
+    const gildedRose = gildedRoseTestFactory(testCases);
+    gildedRose.updateQuality();
+
+    testCases.forEach((testCase, index) => {
+      it(`for item: ${testCase.name}, and quality: ${testCase.quality}`, () => {
+        expect(gildedRose.items[index].quality).to.equal(testCase.expectedQuality);
+      });
+    });
+  });
+
 });
