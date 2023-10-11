@@ -120,10 +120,10 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     });
   });
 
-  describe('should not change quality or sellIn for \'Sulfuras\'', () => {
+  describe('should maintain quality in 80 and maintain sellIn for \'Sulfuras\'', () => {
     const testCases = [
       { name: 'Aged Brie', sellIn: 10, quality: 2, expectedQuality: 3 },
-      { name: 'Sulfuras, Hand of Ragnaros', sellIn: 22, quality: 33, expectedSellIn: 22, expectedQuality: 33 },
+      { name: 'Sulfuras, Hand of Ragnaros', sellIn: 22, quality: 33, expectedSellIn: 22, expectedQuality: 80 },
       { name: 'Other item', sellIn: 2, quality: 20, expectedQuality: 19, expectedSellIn: 1 }
     ]
 
@@ -143,8 +143,8 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
   describe('should maintain quality by 80 for \'Sulfuras\'', () => {
     const testCases = [
       { name: 'Sulfuras, Hand of Ragnaros', sellIn: 0, quality: 80, expectedQuality: 80 },
-      // Failing test case
-      // { name: 'Sulfuras, Hand of Ragnaros', sellIn: -1, quality: 1000, expectedQuality: 80 },
+      { name: 'Sulfuras, Hand of Ragnaros', sellIn: -1, quality: 1000, expectedQuality: 80 },
+      { name: 'Sulfuras, Hand of Ragnaros', sellIn: -1, quality: 40, expectedQuality: 80 },
     ]
 
     const gildedRose = gildedRoseTestFactory(testCases);

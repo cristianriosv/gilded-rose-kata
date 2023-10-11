@@ -19,6 +19,7 @@ export class GildedRose {
 
   updateQuality() {
     const SULFURUS_NAME = 'Sulfuras, Hand of Ragnaros';
+    const SULFURUS_FIXED_VALUE = 80;
     const AGED_BRIE_NAME = 'Aged Brie';
     const BACKSTAGE_PASSES_NAME = 'Backstage passes to a TAFKAL80ETC concert';
     const BACKSTAGE_PASSES_10_DAYS = 10;
@@ -36,6 +37,7 @@ export class GildedRose {
       if (item.name == SULFURUS_NAME) {
         sellInChangeAmount = 0;
         qualityChangeAmount = 0;
+        if (item.quality != SULFURUS_FIXED_VALUE) item.quality = SULFURUS_FIXED_VALUE;
       } else if (item.name == AGED_BRIE_NAME) {
         qualityChangeAmount = 1; 
       } else if (item.name == BACKSTAGE_PASSES_NAME) {
