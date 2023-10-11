@@ -107,7 +107,8 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     const testCases = [
       { name: 'Aged Brie', sellIn: 10, quality: 50, expectedQuality: 50 },
       { name: 'Aged Brie', sellIn: -2, quality: 49, expectedQuality: 50 },
-      { name: 'Aged Brie', sellIn: 10, quality: 51, expectedQuality: 51 }
+      { name: 'Aged Brie', sellIn: 10, quality: 51, expectedQuality: 51 },
+      { name: 'Aged Brie super', sellIn: 10, quality: 51, expectedQuality: 51 }
     ]
 
     const gildedRose = gildedRoseTestFactory(testCases);
@@ -124,6 +125,7 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     const testCases = [
       { name: 'Aged Brie', sellIn: 10, quality: 2, expectedQuality: 3 },
       { name: 'Sulfuras, Hand of Ragnaros', sellIn: 22, quality: 33, expectedSellIn: 22, expectedQuality: 80 },
+      { name: 'Sulfuras, Legs of Ragnaros', sellIn: 22, quality: 33, expectedSellIn: 22, expectedQuality: 80 },
       { name: 'Other item', sellIn: 2, quality: 20, expectedQuality: 19, expectedSellIn: 1 }
     ]
 
@@ -164,6 +166,7 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
       { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 8, quality: 2, expectedQuality: 4 },
       { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 5, quality: 2, expectedQuality: 5 },
       { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 3, quality: 2, expectedQuality: 5 },
+      { name: 'Backstage passes to a RANDOM concert', sellIn: 3, quality: 2, expectedQuality: 5 },
     ]
 
     const gildedRose = gildedRoseTestFactory(testCases);
