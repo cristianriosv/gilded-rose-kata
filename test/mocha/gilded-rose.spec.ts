@@ -212,4 +212,21 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     });
   });
 
+  describe('should decrease quality for items \'Conjured\' twice as fast as normal items', () => {
+    const testCases = [
+      { name: 'Conjured item', sellIn: 10, quality: 20, expectedQuality: 18 },
+      { name: 'Conjured item', sellIn: -10, quality: 10, expectedQuality: 6 },
+      { name: 'Conjured item', sellIn: -10, quality: 3, expectedQuality: 0 },
+    ]
+
+    const gildedRose = gildedRoseTestFactory(testCases);
+    gildedRose.updateQuality();
+
+    testCases.forEach((testCase, index) => {
+      it(`for item: ${testCase.name}, and sellIn: ${testCase.quality}`, () => {
+        expect(gildedRose.items[index].quality).to.equal(testCase.expectedQuality);
+      });
+    });
+  });
+
 });
