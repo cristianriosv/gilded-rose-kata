@@ -110,8 +110,8 @@ describe('Gilded Rose, at the end of the day, when update sellIn and quality', (
       const testCases = [
         { name: 'Aged Brie', sellIn: 10, quality: 50, expectedQuality: 50 },
         { name: 'Aged Brie', sellIn: -2, quality: 49, expectedQuality: 50 },
-        { name: 'Aged Brie', sellIn: 10, quality: 51, expectedQuality: 51 },
-        { name: 'Aged Brie super', sellIn: 10, quality: 51, expectedQuality: 51 }
+        { name: 'Aged Brie', sellIn: 10, quality: 51, expectedQuality: 50 },
+        { name: 'Aged Brie super', sellIn: 10, quality: 51, expectedQuality: 50 }
       ]
 
       const gildedRose = gildedRoseTestFactory(testCases);
