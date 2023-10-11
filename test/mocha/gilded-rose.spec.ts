@@ -232,7 +232,7 @@ describe('Gilded Rose, at the end of the day, when update sellIn and quality', (
       gildedRose.updateQuality();
 
       testCases.forEach((testCase, index) => {
-        it(`for item: ${testCase.name}, and sellIn: ${testCase.quality}`, () => {
+        it(`for item: ${testCase.name}, and sellIn: ${testCase.sellIn}`, () => {
           expect(gildedRose.items[index].quality).to.equal(testCase.expectedQuality);
         });
       });
