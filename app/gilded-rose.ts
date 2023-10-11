@@ -22,44 +22,39 @@ export class GildedRose {
       const item = this.items[i];
       
       let qualityResult = item.quality;
-      let qualityChangeModule = -1;
+      let qualityChangeAmount = -1;
+      let sellInChangeAmount = -1;
+      let qualitySellInFactor = 1;
 
-      if (item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-        qualityChangeModule = 1;
-        if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-          if (item.sellIn <= 10) {
-            qualityChangeModule = 2;
-          }
-          if (item.sellIn <= 5) {
-            qualityChangeModule = 3;
-          }
-        }
-      }
       if (item.sellIn <= 0) {
-        if (item.name == 'Aged Brie') {
-          qualityChangeModule++;
-        } else {
-          if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-            qualityResult = 0;
-            qualityChangeModule = 0;
-          } else {
-            qualityChangeModule--;
-          }
-        }
+        qualitySellInFactor = 2;
       }
-
-      if (qualityChangeModule > 0 && item.quality < 50) {
-        qualityResult = Math.min(qualityResult + qualityChangeModule, 50);
+      if (item.name == 'Sulfuras, Hand of Ragnaros') {
+        sellInChangeAmount = 0;
+        qualityChangeAmount = 0;
+        qualitySellInFactor = 0;
+      } else if (item.name == 'Aged Brie') {
+        qualityChangeAmount = 1;
+      } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+        qualityChangeAmount = 1;
+        if (item.sellIn <= 0) {
+          qualityChangeAmount = 0;
+          qualityResult = 0;
+        } else if (item.sellIn <= 5) {
+          qualityChangeAmount = 3;
+        } else if (item.sellIn <= 10) {
+          qualityChangeAmount = 2;
+        }
       }
       
-      if (qualityChangeModule < 0 && item.quality > 0) {
-        qualityResult = Math.max(qualityResult + qualityChangeModule, 0);
+      if (qualityChangeAmount < 0 && item.quality > 0) {
+        qualityResult = Math.max(qualityResult + qualityChangeAmount * qualitySellInFactor, 0);
+      } else if (qualityChangeAmount > 0 && item.quality < 50) {
+        qualityResult = Math.min(qualityResult + qualityChangeAmount * qualitySellInFactor, 50);
       }
 
-      if (item.name != 'Sulfuras, Hand of Ragnaros') {
-        item.sellIn--;
-        item.quality = qualityResult;
-      }
+      item.sellIn += sellInChangeAmount;
+      item.quality = qualityResult;
       
     }
 
