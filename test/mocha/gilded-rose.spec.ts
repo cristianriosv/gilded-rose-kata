@@ -103,7 +103,7 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     });
   });
 
-  describe('should not increase quality more than 50 for item \'Aged Brie\'', () => {
+  describe('should increase quality for item \'Aged Brie\' with top maximum 50 value', () => {
     const testCases = [
       { name: 'Aged Brie', sellIn: 10, quality: 50, expectedQuality: 50 },
       { name: 'Aged Brie', sellIn: -2, quality: 49, expectedQuality: 50 },
@@ -140,7 +140,7 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     });
   });
 
-  describe('should maintain quality by 80 for \'Sulfuras\'', () => {
+  describe('should maintain quality at 80 for \'Sulfuras\'', () => {
     const testCases = [
       { name: 'Sulfuras, Hand of Ragnaros', sellIn: 0, quality: 80, expectedQuality: 80 },
       { name: 'Sulfuras, Hand of Ragnaros', sellIn: -1, quality: 1000, expectedQuality: 80 },
@@ -192,7 +192,7 @@ describe('Gilded Rose, at the end of the day, should update sellIn and quality',
     });
   });
 
-  describe('should not increase quality more than 50 for item \'Backstage passes\' when sellIn is between 0 and 10 days', () => {
+  describe('should increase quality for item \'Backstage passes\' with top maximum 50 value when sellIn is between 0 and 10 days', () => {
     const testCases = [
       { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 10, quality: 48, expectedQuality: 50 },
       { name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 3, quality: 49, expectedQuality: 50 },
