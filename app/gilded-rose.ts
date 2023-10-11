@@ -33,10 +33,12 @@ export class GildedRose {
       let qualityChangeAmount = -1;
       let sellInChangeAmount = -1;
       let qualitySellInFactor = item.sellIn > 0 ? 1 : 2;
+      let maximumQuality = MAXIMUM_QUALITY;
 
       if (item.name.startsWith(SULFURUS_NAME)) {
         sellInChangeAmount = 0;
         qualityChangeAmount = 0;
+        maximumQuality = SULFURUS_FIXED_VALUE;
         if (item.quality != SULFURUS_FIXED_VALUE) item.quality = SULFURUS_FIXED_VALUE;
       } else if (item.name.startsWith(AGED_BRIE_NAME)) {
         qualityChangeAmount = 1; 
@@ -51,8 +53,8 @@ export class GildedRose {
       
       if (qualityChangeAmount < 0) {
         item.quality = Math.max(qualityChangeResult, MINIMUM_QUALITY);
-      } else if (item.quality < MAXIMUM_QUALITY) {
-        item.quality = Math.min(qualityChangeResult, MAXIMUM_QUALITY);
+      } else {
+        item.quality = Math.min(qualityChangeResult, maximumQuality);
       }
 
       item.sellIn += sellInChangeAmount;
