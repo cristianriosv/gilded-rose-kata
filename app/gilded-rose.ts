@@ -33,9 +33,8 @@ export class GildedRose {
 
       let qualityChangeAmount = -1;
       let sellInChangeAmount = -1;
-      let qualitySellInFactor = item.sellIn > 0 ? 1 : 2;
+      let qualityMultiplier = item.sellIn > 0 ? 1 : 2;
       let maximumQuality = MAXIMUM_QUALITY;
-      let conjuredFactor = 1;
 
       if (item.name.startsWith(SULFURUS_NAME)) {
         sellInChangeAmount = 0;
@@ -50,10 +49,10 @@ export class GildedRose {
         else if (item.sellIn <= BACKSTAGE_PASSES_5_DAYS) qualityChangeAmount = 3;
         else if (item.sellIn <= BACKSTAGE_PASSES_10_DAYS) qualityChangeAmount = 2;
       } else if (item.name.startsWith(CONJURED_NAME)) {
-        conjuredFactor = 2;
+        qualityMultiplier *= 2;
       }
 
-      const qualityChangeResult = item.quality + qualityChangeAmount * qualitySellInFactor * conjuredFactor;
+      const qualityChangeResult = item.quality + qualityChangeAmount * qualityMultiplier;
       
       if (qualityChangeAmount < 0) {
         item.quality = Math.max(qualityChangeResult, MINIMUM_QUALITY);
