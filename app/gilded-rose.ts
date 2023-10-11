@@ -21,22 +21,20 @@ export class GildedRose {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
       let nextQualityValue = item.quality;
+      let qualityChangeModule = -1;
 
       if (item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-        if (nextQualityValue < 50) {
-          nextQualityValue++;
-          if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-            if (item.sellIn < 11) {
-              if (nextQualityValue < 50) {
-                nextQualityValue++;
-              }
-            }
-            if (item.sellIn < 6) {
-              if (nextQualityValue < 50) {
-                nextQualityValue++;
-              }
-            }
+        qualityChangeModule = 1;
+        if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+          if (item.sellIn < 11) {
+            qualityChangeModule = 2;
           }
+          if (item.sellIn < 6) {
+            qualityChangeModule = 3;
+          }
+        }
+        if (item.quality < 50) {
+          nextQualityValue += qualityChangeModule;
         }
       } else {
         if (nextQualityValue > 0) {
