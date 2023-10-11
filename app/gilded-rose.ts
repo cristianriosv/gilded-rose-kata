@@ -20,8 +20,7 @@ export class GildedRose {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
-      
-      let qualityResult = item.quality;
+
       let qualityChangeAmount = -1;
       let sellInChangeAmount = -1;
       let qualitySellInFactor = 1;
@@ -38,8 +37,7 @@ export class GildedRose {
       } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
         qualityChangeAmount = 1;
         if (item.sellIn <= 0) {
-          qualityChangeAmount = 0;
-          qualityResult = 0;
+          qualityChangeAmount = -item.quality;
         } else if (item.sellIn <= 5) {
           qualityChangeAmount = 3;
         } else if (item.sellIn <= 10) {
@@ -48,13 +46,12 @@ export class GildedRose {
       }
       
       if (qualityChangeAmount < 0 && item.quality > 0) {
-        qualityResult = Math.max(qualityResult + qualityChangeAmount * qualitySellInFactor, 0);
+        item.quality = Math.max(item.quality + qualityChangeAmount * qualitySellInFactor, 0);
       } else if (qualityChangeAmount > 0 && item.quality < 50) {
-        qualityResult = Math.min(qualityResult + qualityChangeAmount * qualitySellInFactor, 50);
+        item.quality = Math.min(item.quality + qualityChangeAmount * qualitySellInFactor, 50);
       }
 
       item.sellIn += sellInChangeAmount;
-      item.quality = qualityResult;
       
     }
 
