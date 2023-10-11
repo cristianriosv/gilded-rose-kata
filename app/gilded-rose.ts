@@ -33,39 +33,32 @@ export class GildedRose {
             qualityChangeModule = 3;
           }
         }
-        if (item.quality < 50) {
-          nextQualityValue += qualityChangeModule;
-        }
-      } else {
-        if (nextQualityValue > 0) {
-          if (item.name != 'Sulfuras, Hand of Ragnaros') { 
-            nextQualityValue--;
+      }
+      if (item.sellIn <= 0) {
+        if (item.name == 'Aged Brie') {
+          qualityChangeModule++;
+        } else {
+          if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
+            nextQualityValue = 0;
+            qualityChangeModule = 0;
+          } else {
+            qualityChangeModule--;
           }
         }
       }
-      if (item.sellIn < 1) {
-        if (item.name == 'Aged Brie') {
-          if (nextQualityValue < 50) {
-            nextQualityValue++;
-          }
-        } else {
-          if (item.name != 'Backstage passes to a TAFKAL80ETC concert') {
-            if (nextQualityValue > 0) {
-              if (item.name != 'Sulfuras, Hand of Ragnaros') {
-                nextQualityValue--;
-              }
-            }
-          } else {
-            nextQualityValue = 0;
-          }
-        }
+
+      if (qualityChangeModule > 0 && item.quality < 50) {
+        nextQualityValue = Math.min(nextQualityValue + qualityChangeModule, 50);
+      }
+      
+      if (qualityChangeModule < 0 && item.quality > 0) {
+        nextQualityValue = Math.max(nextQualityValue + qualityChangeModule, 0);
       }
 
       if (item.name != 'Sulfuras, Hand of Ragnaros') {
         item.sellIn--;
+        item.quality = nextQualityValue;
       }
-
-      item.quality = nextQualityValue;
       
     }
 
