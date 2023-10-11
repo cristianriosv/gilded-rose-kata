@@ -21,6 +21,7 @@ export class GildedRose {
     const SULFURUS_NAME = 'Sulfuras';
     const SULFURUS_FIXED_VALUE = 80;
     const AGED_BRIE_NAME = 'Aged Brie';
+    const CONJURED_NAME = 'Conjured';
     const BACKSTAGE_PASSES_NAME = 'Backstage passes';
     const BACKSTAGE_PASSES_10_DAYS = 10;
     const BACKSTAGE_PASSES_5_DAYS = 5;
@@ -34,6 +35,7 @@ export class GildedRose {
       let sellInChangeAmount = -1;
       let qualitySellInFactor = item.sellIn > 0 ? 1 : 2;
       let maximumQuality = MAXIMUM_QUALITY;
+      let conjuredFactor = 1;
 
       if (item.name.startsWith(SULFURUS_NAME)) {
         sellInChangeAmount = 0;
@@ -47,9 +49,11 @@ export class GildedRose {
         if (item.sellIn <= 0)  qualityChangeAmount = -item.quality;
         else if (item.sellIn <= BACKSTAGE_PASSES_5_DAYS) qualityChangeAmount = 3;
         else if (item.sellIn <= BACKSTAGE_PASSES_10_DAYS) qualityChangeAmount = 2;
+      } else if (item.name.startsWith(CONJURED_NAME)) {
+        conjuredFactor = 2;
       }
 
-      const qualityChangeResult = item.quality + qualityChangeAmount * qualitySellInFactor;
+      const qualityChangeResult = item.quality + qualityChangeAmount * qualitySellInFactor * conjuredFactor;
       
       if (qualityChangeAmount < 0) {
         item.quality = Math.max(qualityChangeResult, MINIMUM_QUALITY);
