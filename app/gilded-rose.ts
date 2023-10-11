@@ -22,13 +22,7 @@ export class GildedRose {
       const item = this.items[i];
       let nextQualityValue = item.quality;
 
-      if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert') {
-        if (nextQualityValue > 0) {
-          if (item.name != 'Sulfuras, Hand of Ragnaros') {
-            nextQualityValue--;
-          }
-        }
-      } else {
+      if (item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert') {
         if (nextQualityValue < 50) {
           nextQualityValue++;
           if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
@@ -44,9 +38,19 @@ export class GildedRose {
             }
           }
         }
+      } else {
+        if (nextQualityValue > 0) {
+          if (item.name != 'Sulfuras, Hand of Ragnaros') { 
+            nextQualityValue--;
+          }
+        }
       }
       if (item.sellIn < 1) {
-        if (item.name != 'Aged Brie') {
+        if (item.name == 'Aged Brie') {
+          if (nextQualityValue < 50) {
+            nextQualityValue++;
+          }
+        } else {
           if (item.name != 'Backstage passes to a TAFKAL80ETC concert') {
             if (nextQualityValue > 0) {
               if (item.name != 'Sulfuras, Hand of Ragnaros') {
@@ -55,10 +59,6 @@ export class GildedRose {
             }
           } else {
             nextQualityValue = 0;
-          }
-        } else {
-          if (nextQualityValue < 50) {
-            nextQualityValue++;
           }
         }
       }
