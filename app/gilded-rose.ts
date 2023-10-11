@@ -20,16 +20,17 @@ export class GildedRose {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
-      let nextQualityValue = item.quality;
+      
+      let qualityResult = item.quality;
       let qualityChangeModule = -1;
 
       if (item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert') {
         qualityChangeModule = 1;
         if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-          if (item.sellIn < 11) {
+          if (item.sellIn <= 10) {
             qualityChangeModule = 2;
           }
-          if (item.sellIn < 6) {
+          if (item.sellIn <= 5) {
             qualityChangeModule = 3;
           }
         }
@@ -39,7 +40,7 @@ export class GildedRose {
           qualityChangeModule++;
         } else {
           if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-            nextQualityValue = 0;
+            qualityResult = 0;
             qualityChangeModule = 0;
           } else {
             qualityChangeModule--;
@@ -48,16 +49,16 @@ export class GildedRose {
       }
 
       if (qualityChangeModule > 0 && item.quality < 50) {
-        nextQualityValue = Math.min(nextQualityValue + qualityChangeModule, 50);
+        qualityResult = Math.min(qualityResult + qualityChangeModule, 50);
       }
       
       if (qualityChangeModule < 0 && item.quality > 0) {
-        nextQualityValue = Math.max(nextQualityValue + qualityChangeModule, 0);
+        qualityResult = Math.max(qualityResult + qualityChangeModule, 0);
       }
 
       if (item.name != 'Sulfuras, Hand of Ragnaros') {
         item.sellIn--;
-        item.quality = nextQualityValue;
+        item.quality = qualityResult;
       }
       
     }
