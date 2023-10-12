@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/logo.svg'
+import InventoryListFeature from './features/inventoryList/views/InventoryList';
+import MainLayout from './layouts/MainLayout';
+import AppProvider from './store/AppProvider';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      Here goes the content
-    </div>
+    <AppProvider>
+      <MainLayout>
+        <InventoryListFeature  />
+      </MainLayout>
+    </AppProvider>
   )
 }
 
