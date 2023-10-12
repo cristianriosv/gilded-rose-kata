@@ -1,10 +1,10 @@
-import Header from "./components/Header";
 import styled from "@emotion/styled";
+import Header from "@layouts/components/Header";
 
 const MainLayout = ({ children }) => {
     const WRAPPER_MAX_WIDTH = 900;
     const WRAPPER_X_PADDING = 20;
-    
+
     const StyledWrapper = styled.div({
         width: '100%',
         maxWidth: WRAPPER_MAX_WIDTH,

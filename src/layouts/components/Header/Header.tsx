@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import logo from "src/assets/logo.svg";
-import { GENERAL_FONTS, BREAKPOINTS } from "src/styles/constants";
-import NavBar from "../NavBar";
+import logo from "@assets/logo.svg";
+import { GENERAL_FONTS, BREAKPOINTS } from "@styles/constants";
+import NavBar from "@layouts/components/NavBar";
 
 const Header = () => {
 

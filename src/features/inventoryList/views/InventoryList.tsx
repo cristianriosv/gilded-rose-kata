@@ -1,4 +1,4 @@
-import useAppContext from "src/store/useAppContext";
+import useAppContext from "@store/useAppContext";
 
 const InventoryList = () => {
     const { gildedRoseInventory } = useAppContext();

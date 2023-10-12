@@ -12,9 +12,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": [
-        "app/*"
-      ]
+      "@/*": ["app/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@features/*": ["src/features/*"],
+      "@assets/*": ["src/assets/*"],
+      "@store/*": ["src/store/*"],
+      "@styles/*": ["src/styles/*"]
     }
   },
   "exclude": [

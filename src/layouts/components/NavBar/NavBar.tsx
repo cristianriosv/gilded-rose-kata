@@ -1,5 +1,5 @@
-import useAppContext from "src/store/useAppContext";
 import styled from "@emotion/styled";
+import useAppContext from "@store/useAppContext";
 
 const NavBar = () => {
     const { updateToNextDay, currentDate } = useAppContext();
