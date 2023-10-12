@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import logo from "@assets/logo.svg";
-import { GENERAL_FONTS, BREAKPOINTS } from "@styles/constants";
 import NavBar from "@layouts/components/NavBar";
+import useMyTheme from "@styles/useMyTheme";
 
 const Header = () => {
-
+    const theme = useMyTheme();
     const StyledHeader = styled.header({
         width: '100%'
     });
@@ -20,10 +20,10 @@ const Header = () => {
     });
 
     const StyledLogoTitle = styled.div({
-        fontFamily: GENERAL_FONTS.primary,
+        fontFamily: theme.colors.primary,
         fontWeight: 900,
         fontSize: '3.6rem',
-        [BREAKPOINTS.max.small]: {
+        [theme.breakpoitns.max.small]: {
             fontSize: '2.5rem'
         },
     });
@@ -32,7 +32,7 @@ const Header = () => {
         width: 'auto',
         height: 70,
         transform: `rotate(${props.rotate}deg)`,
-        [BREAKPOINTS.max.small]: {
+        [theme.breakpoitns.max.small]: {
             height: 40
         }
     }));

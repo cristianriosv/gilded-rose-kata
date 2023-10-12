@@ -1,8 +1,9 @@
 import { Global, css } from '@emotion/react';
-import { GENERAL_FONTS } from './constants';
+import useMyTheme from './useMyTheme';
 
 const GlobalStyles = () => {
-    const fontImports = Object.values(GENERAL_FONTS).map((font) => {
+    const theme = useMyTheme();
+    const fontImports = Object.values(theme.fonts).map((font: string) => {
         const fontUrlName = font.replace(/ /g, '+');
         return `@import url('https://fonts.googleapis.com/css2?family=${fontUrlName}:wght@400;500;600;900&display=swap');`
     });
@@ -11,7 +12,7 @@ const GlobalStyles = () => {
             styles={css`
             ${fontImports.join('\n')}
             :root {
-                font-family: '${GENERAL_FONTS.secondary}', cursive;
+                font-family: '${theme['fonts'].secondary}', cursive;
                 font-size: 16px;
             
                 color-scheme: light dark;
