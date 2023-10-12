@@ -17,6 +17,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@svgr/rollup": "^8.1.0",
     "@types/chai": "^4.2.22",
     "@types/jest": "^29.4.0",
     "@types/mocha": "^10.0.1",
