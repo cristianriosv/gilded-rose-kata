@@ -19,7 +19,9 @@ const AppProvider = ({ children }: AppProviderProps) => {
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
 
     const updateToNextDay = () => {
-        setCurrentDate((currentDate) => new Date(currentDate.setDate(currentDate.getDate() + 1)));
+        const newDate = new Date(currentDate);
+        newDate.setDate(currentDate.getDate() + 1)
+        setCurrentDate(newDate);
         gildedRoseInventory.updateQuality();
     }
 
