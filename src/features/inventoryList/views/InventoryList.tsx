@@ -1,8 +1,7 @@
 import useAppContext from "src/store/useAppContext";
 
 const InventoryList = () => {
-    const appContext = useAppContext();
-    const { gildedRoseInventory } = appContext;
+    const { gildedRoseInventory } = useAppContext();
 
     return (
         <div>
