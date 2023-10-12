@@ -1,6 +1,11 @@
+export enum TypeOfFonts {
+    primary = 'primary',
+    secondary = 'secondary',
+}
+
 export const GENERAL_FONTS = {
-    primary: 'Almendra SC',
-    secondary: 'Texturina',
+    [TypeOfFonts.primary]: 'Almendra SC',
+    [TypeOfFonts.secondary]: 'Texturina',
 };
 
 const DEVICE_SIZES = {

@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import Typography from "@shared/components/Typography";
+import { SHARED_LABELS } from "@shared/constants/labels";
 import useAppContext from "@store/useAppContext";
 
 const NavBar = () => {
@@ -26,8 +28,16 @@ const NavBar = () => {
     return (
         <StyledNavBar>
             <StyledMainMenu>
-                <div>Day: {currentDate.toDateString()}</div>
-                <button onClick={() => handleUpdateToNextDay()}>Jump to next day</button>
+                <Typography>
+                    <Typography tag="span" font="primary" sizeRem={1.2}>
+                        {SHARED_LABELS.day}:
+                    </Typography>
+                    {' '}
+                    {currentDate.toDateString()}
+                </Typography>
+                <button onClick={() => handleUpdateToNextDay()}>
+                    {SHARED_LABELS.nextDay}
+                </button>
             </StyledMainMenu>
         </StyledNavBar>
     );

@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import Header from "@layouts/components/Header";
+import Typography from "@shared/components/Typography";
+import { SHARED_LABELS } from "@shared/constants/labels";
 
 const MainLayout = ({ children }) => {
     const WRAPPER_MAX_WIDTH = 900;
@@ -35,7 +37,11 @@ const MainLayout = ({ children }) => {
                 {children}
             </StyledMain>
             <StyledFooter>
-                Made with ❤️ by Cristian
+                <Typography variant="caption">
+                    {SHARED_LABELS.footerCredits}
+                    {' '}
+                    Cristian
+                </Typography>
             </StyledFooter>
         </StyledWrapper>
     );

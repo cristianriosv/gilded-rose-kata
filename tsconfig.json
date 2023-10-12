@@ -17,7 +17,8 @@
       "@features/*": ["src/features/*"],
       "@assets/*": ["src/assets/*"],
       "@store/*": ["src/store/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@shared/*": ["src/shared/*"]
     }
   },
   "exclude": [
