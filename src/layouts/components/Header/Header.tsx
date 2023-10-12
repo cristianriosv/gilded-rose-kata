@@ -10,17 +10,21 @@ const Header = () => {
     });
 
     const StyledLogoContainer = styled.div({
-        fontFamily: GENERAL_FONTS.primary,
-        fontWeight: 900,
-        fontSize: '1.7rem',
         flex: 0.5,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         gap: 20,
         textAlign: 'center',
+        padding: '20px 0'
+    });
+
+    const StyledLogoTitle = styled.div({
+        fontFamily: GENERAL_FONTS.primary,
+        fontWeight: 900,
+        fontSize: '3.6rem',
         [BREAKPOINTS.max.small]: {
-            fontSize: '1rem'
+            fontSize: '2.5rem'
         },
     });
 
@@ -37,7 +41,7 @@ const Header = () => {
         <StyledHeader>
             <StyledLogoContainer>
                 <StyledLogoImage src={logo} alt="Gilded Rose" rotate={320} />
-                <h1>Gilded Rose</h1>
+                <StyledLogoTitle>Gilded Rose</StyledLogoTitle>
                 <StyledLogoImage src={logo} alt="Gilded Rose" rotate={40} />
             </StyledLogoContainer>
             <NavBar />
