@@ -5,8 +5,9 @@ const DEVICE_SIZES = {
 }
 
 const COLORS = {
-    primary: '#AEA92D',
-    secondary: '#353316',
+    primary: 'rgb(174 169 45)',
+    secondary: 'rgb(53 51 22)',
+    primaryLight: 'rgb(215 210 84)',
 }
 
 export const theme = {
@@ -21,13 +22,32 @@ export const theme = {
         )
     },
     buttons: {
-        primary: {
-            color: COLORS.secondary,
-            background: COLORS.primary
+        colors: {
+            primary: {
+                color: COLORS.secondary,
+                background: COLORS.primary,
+                hover: {
+                    background: COLORS.primaryLight
+                }
+            },
+            secondary: {
+                color: COLORS.primary,
+                background: COLORS.secondary,
+                hover: {
+                    background: COLORS.primary
+                }
+            },
         },
-        secondary: {
-            color: COLORS.primary,
-            background: COLORS.secondary,
-        },
+        sizes: {
+            small: {
+                padding: '5px 10px',
+            },
+            medium: {
+                padding: '10px 20px',
+            },
+            large: {
+                padding: '15px 30px',
+            }
+        }
     }
 }

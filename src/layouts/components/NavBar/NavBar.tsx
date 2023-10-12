@@ -36,7 +36,7 @@ const NavBar = () => {
                     {' '}
                     {currentDate.toDateString()}
                 </Typography>
-                <Button onClick={() => handleUpdateToNextDay()}>
+                <Button size="small" onClick={() => handleUpdateToNextDay()}>
                     {SHARED_LABELS.nextDay}
                 </Button>
             </StyledMainMenu>
