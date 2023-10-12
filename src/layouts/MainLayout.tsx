@@ -1,12 +1,9 @@
+import Header from "./Header/";
+
 const MainLayout = ({ children }) => {
     return (
         <div>
-            <header>
-                <div>
-                    <h1>Gilded Rose</h1>
-                    <hr />
-                </div>
-            </header>
+            <Header />
             <main>
                 {children}
             </main>
