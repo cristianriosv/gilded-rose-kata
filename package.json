@@ -9,7 +9,10 @@
     "test:jest": "jest",
     "test:jest:watch": "jest --watchAll",
     "test:mocha": "nyc mocha",
-    "test:vitest": "vitest --coverage"
+    "test:vitest": "vitest --coverage",
+    "ui:start": "vite",
+    "ui:build": "vite build",
+    "ui:preview": "vite preview"
   },
   "license": "MIT",
   "private": true,
@@ -29,7 +32,13 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
     "typescript": "^4.4.4",
-    "vite-tsconfig-paths": "^4.0.5",
-    "vitest": "^0.28.5"
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^0.28.5",
+    "@vitejs/plugin-react": "^4.1.0",
+    "vite": "^4.4.11"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

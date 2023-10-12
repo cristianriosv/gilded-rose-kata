@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "strict": true,
-    "noImplicitAny": false,
-    "sourceMap": false,
+    "module": "NodeNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "target": "ES2020",
+    "skipLibCheck": true,
+    
     "baseUrl": "./",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
     "paths": {
       "@/*": [
         "app/*"
