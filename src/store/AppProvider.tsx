@@ -21,7 +21,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
     }
 
     const addNewItem = (name: string, sellIn: number, quality: number) => {
-        gildedRoseManagement.items.push({ name, sellIn, quality });
+        gildedRoseManagement.items.unshift({ name, sellIn, quality });
         setGildedRoseInventory([...gildedRoseManagement.items]);
     }
 

@@ -24,7 +24,7 @@ const Header = () => {
         fontWeight: 900,
         fontSize: '3.6rem',
         [theme.breakpoitns.max.small]: {
-            fontSize: '2.5rem'
+            fontSize: '2.3rem'
         },
     });
 

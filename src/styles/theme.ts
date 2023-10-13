@@ -30,14 +30,19 @@ export const theme = {
                 color: COLORS.secondary,
                 background: COLORS.primary,
                 hover: {
-                    background: COLORS.primaryLight
+                    color: COLORS.secondary,
+                    background: COLORS.primaryLight,
+                    '& svg': {
+                        fill: COLORS.secondary,
+                    }
                 }
             },
             secondary: {
                 color: COLORS.primary,
                 background: COLORS.secondary,
                 hover: {
-                    background: COLORS.primary
+                    color: COLORS.secondary,
+                    background: COLORS.primary,
                 }
             },
         },
