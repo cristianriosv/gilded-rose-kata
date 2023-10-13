@@ -16,18 +16,35 @@ type AppProviderProps = {
 }
 
 const AppProvider = ({ children }: AppProviderProps) => {
-    const gildedRoseInventory = new GildedRose(INITIAL_ITEMS);
+    const [gildedRoseInventory, setGildedRoseInventory] = useState(INITIAL_ITEMS);
+    const gildedRoseManagement = new GildedRose(gildedRoseInventory);
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
 
     const updateToNextDay = () => {
         const newDate = new Date(currentDate);
         newDate.setDate(currentDate.getDate() + 1)
         setCurrentDate(newDate);
-        gildedRoseInventory.updateQuality();
+        setGildedRoseInventory(gildedRoseManagement.updateQuality());
+    }
+
+    const addNewItem = (name: string, sellIn: number, quality: number) => {
+        gildedRoseManagement.items.push({ name, sellIn, quality });
+        setGildedRoseInventory([...gildedRoseManagement.items]);
+    }
+
+    const removeItemByPosition = (index: number) => {
+        gildedRoseManagement.items.splice(index, 1);
+        setGildedRoseInventory([...gildedRoseManagement.items]);
     }
 
     return (
-        <AppContext.Provider value={{ gildedRoseInventory, currentDate, updateToNextDay }}>
+        <AppContext.Provider value={{
+            gildedRoseInventory,
+            currentDate,
+            updateToNextDay,
+            addNewItem,
+            removeItemByPosition
+        }}>
             {children}
         </AppContext.Provider>
     );
