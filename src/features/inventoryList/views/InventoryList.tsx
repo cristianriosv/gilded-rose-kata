@@ -5,9 +5,12 @@ import Typography from "@shared/components/Typography";
 import Table, { ColumnProps } from "@shared/components/Table/Table";
 import Button from "@shared/components/Button/Button";
 import { ReactComponent as Fire } from "@assets/icons/fire.svg";
+import useMyTheme from "@styles/useMyTheme";
 
 const InventoryList = () => {
     const { gildedRoseInventory, removeItemByPosition } = useAppContext();
+    const theme = useMyTheme();
+
     const columns: ColumnProps[] = [
         { header: INVENTORY_LIST_LABELS.itemName, dataKey: 'name' },
         { header: INVENTORY_LIST_LABELS.sellIn, dataKey: 'sellIn', align: 'center',
@@ -27,6 +30,9 @@ const InventoryList = () => {
 
     const StyledInventoryList = styled.div({
         width: '100%',
+        [theme.breakpoitns.max.small]: {
+            textAlign: 'center'
+        }
     });
     return (
         <StyledInventoryList>

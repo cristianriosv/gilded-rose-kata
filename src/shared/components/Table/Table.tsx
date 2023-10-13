@@ -37,7 +37,7 @@ const Table = ({ columns, data = [], emptyMessage = SHARED_LABELS.emptyList }: T
     const StyledTh = styled.th<Partial<ColumnProps>>(({ align = 'left' }) => ({
         textAlign: align,
         padding: 10,
-        borderBottom: `1px dashed ${theme.table.borderColor}`
+        borderBottom: `1px dashed ${theme.table.borderColor}`,
     }));
 
     const StyledTd = styled.td<Partial<ColumnProps>>(({ align = 'left' }) => ({
@@ -62,7 +62,7 @@ const Table = ({ columns, data = [], emptyMessage = SHARED_LABELS.emptyList }: T
                     <tr>
                         {columns.map((column, index) => (
                             <StyledTh key={index} align={column.align}>
-                                <Typography font="primary" sizeRem={1.5}>
+                                <Typography font="primary" sizeRem={1.2}>
                                     {column.header}
                                 </Typography>
                             </StyledTh>
