@@ -24,7 +24,7 @@ const InventoryList = () => {
             <Typography variant="title">
                 {INVENTORY_LIST_LABELS.title}
             </Typography>
-            <Table columns={columns} data={gildedRoseInventory.items} />
+            <Table columns={columns} data={gildedRoseInventory} emptyMessage={INVENTORY_LIST_LABELS.emptyInventory} />
         </StyledInventoryList>
     )
 }

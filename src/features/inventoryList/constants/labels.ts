@@ -3,4 +3,5 @@ export const INVENTORY_LIST_LABELS = {
     itemName: 'Item Description',
     sellIn: 'Sell In',
     qualiity: 'Quality',
+    emptyInventory: 'Inventory is empty...',
 }

@@ -25,6 +25,7 @@
     "node_modules"
   ],
   "includes": [
-    "vite-env.d.ts"
+    "vite-env.d.ts",
+    "tsconfig.node.json"
   ]
 }
