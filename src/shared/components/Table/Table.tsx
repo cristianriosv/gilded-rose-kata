@@ -7,8 +7,8 @@ import { SHARED_LABELS } from "@shared/constants/labels";
 export type ColumnProps = {
     header: string,
     align?: 'left' | 'center' | 'right',
-    dataKey: string,
-    cellRender?: (data: any) => React.ReactNode
+    dataKey?: string,
+    cellRender?: (rowData: any, index: number) => React.ReactNode
 };
 
 type TableProps = {
@@ -76,7 +76,7 @@ const Table = ({ columns, data = [], emptyMessage = SHARED_LABELS.emptyList }: T
                                 <StyledTd key={indexColumn} align={column.align}>
                                     {
                                         column.cellRender
-                                            ? column.cellRender(row[column.dataKey])
+                                            ? column.cellRender(row, indexRow)
                                             : row[column.dataKey]
                                     }
                                 </StyledTd>

@@ -22,7 +22,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
 
     const updateToNextDay = () => {
         const newDate = new Date(currentDate);
-        newDate.setDate(currentDate.getDate() + 1)
+        newDate.setDate(currentDate.getDate() + 1);
         setCurrentDate(newDate);
         setGildedRoseInventory(gildedRoseManagement.updateQuality());
     }
