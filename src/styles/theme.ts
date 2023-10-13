@@ -8,6 +8,7 @@ const COLORS = {
     primary: 'rgb(174 169 45)',
     secondary: 'rgb(53 51 22)',
     primaryLight: 'rgb(215 210 84)',
+    background: 'rgb(36 36 36)',
 }
 
 export const theme = {
@@ -47,6 +48,15 @@ export const theme = {
             },
             large: {
                 padding: '15px 30px',
+            }
+        }
+    },
+    table: {
+        borderColor: COLORS.primary,
+        tr: {
+            hover: {
+                background: `linear-gradient(to bottom, rgba(0,0,0,0), ${COLORS.secondary})`,
+                color: 'rgb(255 255 255)',
             }
         }
     }
