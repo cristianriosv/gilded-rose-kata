@@ -42,6 +42,7 @@ const Button = ({ children, variant = "primary", size = "medium", ...props }: Bu
             boxShadow: '0 0px 5px rgba(255,255,255, 0.8)',
             transition: 'all 0.3s ease-in-out',
             backgroundColor: theme.buttons.colors[variant].hover.background,
+            color: theme.buttons.colors[variant].hover.color,
             ':after': {
                 width: '100%',
                 backgroundColor: 'rgba(255,255,255,0)',

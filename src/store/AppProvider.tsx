@@ -1,22 +1,15 @@
 import { ReactNode, useState } from 'react';
 import { GildedRose } from '@/gilded-rose';
 import { AppContext } from './AppContext';
-
-const INITIAL_ITEMS = [
-    { name: 'Common item 1', sellIn: 10, quality: 20 },
-    { name: 'Common item 2', sellIn: 10, quality: 20 },
-    { name: 'Aged Brie item', sellIn: 10, quality: 20 },
-    { name: 'Sulfuras item', sellIn: 10, quality: 80 },
-    { name: 'Backstage passes to Cristian Rios Concert', sellIn: 15, quality: 20 },
-    { name: 'Conjured item', sellIn: 10, quality: 50 }
-]
+import { getNewRandomItem } from '@shared/utils/getNewRandomItem';
 
 type AppProviderProps = {
     children: ReactNode;
 }
 
 const AppProvider = ({ children }: AppProviderProps) => {
-    const [gildedRoseInventory, setGildedRoseInventory] = useState(INITIAL_ITEMS);
+    const generatedRandomItems = new Array(5).fill(null).map(() => (getNewRandomItem()))
+    const [gildedRoseInventory, setGildedRoseInventory] = useState(generatedRandomItems);
     const gildedRoseManagement = new GildedRose(gildedRoseInventory);
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
 

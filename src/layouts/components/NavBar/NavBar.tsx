@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Button from "@shared/components/Button/Button";
+import Button from "@shared/components/Button";
 import Typography from "@shared/components/Typography";
 import { SHARED_LABELS } from "@shared/constants/labels";
 import useAppContext from "@store/useAppContext";

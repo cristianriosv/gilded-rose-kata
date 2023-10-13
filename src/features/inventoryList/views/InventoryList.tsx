@@ -3,9 +3,10 @@ import useAppContext from "@store/useAppContext";
 import { INVENTORY_LIST_LABELS } from "../constants/labels";
 import Typography from "@shared/components/Typography";
 import Table, { ColumnProps } from "@shared/components/Table/Table";
-import Button from "@shared/components/Button/Button";
+import Button from "@shared/components/Button";
 import { ReactComponent as Fire } from "@assets/icons/fire.svg";
 import useMyTheme from "@styles/useMyTheme";
+import AddNewItem from "@features/inventoryList/components/AddNewItem";
 
 const InventoryList = () => {
     const { gildedRoseInventory, removeItemByPosition } = useAppContext();
@@ -34,11 +35,13 @@ const InventoryList = () => {
             textAlign: 'center'
         }
     });
+    
     return (
         <StyledInventoryList>
             <Typography variant="title">
                 {INVENTORY_LIST_LABELS.title}
             </Typography>
+            <AddNewItem />
             <Table columns={columns} data={gildedRoseInventory} emptyMessage={INVENTORY_LIST_LABELS.emptyInventory} />
         </StyledInventoryList>
     )
