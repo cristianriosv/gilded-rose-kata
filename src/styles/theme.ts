@@ -11,12 +11,14 @@ const COLORS = {
     background: 'rgb(36 36 36)',
 }
 
+const FONTS = {
+    primary: 'Almendra SC',
+    secondary: 'Texturina',
+}
+
 export const theme = {
     colors: COLORS,
-    fonts: {
-        primary: 'Almendra SC',
-        secondary: 'Texturina',
-    },
+    fonts: FONTS,
     breakpoitns: {
         max: Object.fromEntries(
             Object.entries(DEVICE_SIZES).map(([key, value]) => [key, `@media (max-width: ${value}px)`]),
@@ -59,5 +61,29 @@ export const theme = {
                 color: 'rgb(255 255 255)',
             }
         }
+    },
+    typography: {
+        body: {
+            fontSize: '1rem',
+            lineHeight: 1.5,
+        },
+        title: {
+            fontFamily: FONTS.secondary,
+            fontSize: '2.3rem',
+            lineHeight: 1.5,
+        },
+        subtitle: {
+            fontFamily: FONTS.primary,
+            fontSize: '2rem',
+            lineHeight: 1.5,
+        },
+        caption: {
+            fontSize: '0.8rem',
+            lineHeight: 1.5,
+        },
+        link: {
+            fontSize: '0.8rem',
+            lineHeight: 1.5,
+        },
     }
 }
